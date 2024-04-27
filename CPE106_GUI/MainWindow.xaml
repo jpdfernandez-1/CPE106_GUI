@@ -1,0 +1,427 @@
+<Window x:Class="CPE106_GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CPE106_GUI"
+        mc:Ignorable="d"
+        Title="Main" Height="500" Width="800"
+        FontFamily="Tahoma">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="99*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <TabControl VerticalAlignment="Center" Height="464" Margin="0,0,1,0" Grid.ColumnSpan="4">
+            <TabControl.Resources>
+                <!-- Style to position TabControl tabs at the top -->
+                <Style TargetType="{x:Type TabPanel}">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Top"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </TabControl.Resources>
+
+            <!-- Home Tab -->
+            <TabItem Header="Home" x:Name="HomePage">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="257*"/>
+                        <ColumnDefinition Width="77*"/>
+                        <ColumnDefinition Width="94*"/>
+                        <ColumnDefinition Width="365*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/Image2.png" Margin="-16,-21,10,0" Grid.ColumnSpan="4" />
+                    <Image Source="/Image3.png" Margin="10,-34,65,350" />
+                    <!-- Reservation Button -->
+                    <Button x:Name="ReservationButton" Grid.Column="0" FontSize="24" Click ="goToReservation_Click" FontWeight="Bold" Background="#FFE0CC3E" Foreground="#FF052D54" Content="Reservation" HorizontalAlignment="Left" Margin="124,69,0,0" VerticalAlignment="Top" Height="80" Width="200" Grid.ColumnSpan="2">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="#FF052D54" CornerRadius="5">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="border" Property="Background" Value="#FFFCDB4E"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <!-- Feedback Button -->
+                    <Button x:Name="FeedbackButton" FontSize="24" FontWeight="Bold" Click="goToFeedback_Click" Background="#FFE0CC3E" Foreground="#FF052D54" Content="Feedback" HorizontalAlignment="Left" Margin="124,309,0,0" VerticalAlignment="Top" Height="80" Width="200" Grid.ColumnSpan="2">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="#FF052D54" CornerRadius="5">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="border" Property="Background" Value="#FFFCDB4E"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <!-- Feedback Button -->
+                    <Button x:Name="PaymentButton" FontSize="24" FontWeight="Bold" Click="goToPayment_Click" Background="#FFE0CC3E" Foreground="#FF052D54" Content="Payment" HorizontalAlignment="Left" Margin="124,0,0,0" VerticalAlignment="Center" Height="80" Width="200" Grid.ColumnSpan="2">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="#FF052D54" CornerRadius="5">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="border" Property="Background" Value="#FFFCDB4E"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <!-- Feedback Button -->
+                    <Button x:Name="ViewEticket" FontSize="24" FontWeight="Bold"  Click="goToViewEticket_Click" Background="#FFE0CC3E" Foreground="#FF052D54" Content="View E-Ticket" HorizontalAlignment="Left" Margin="93,69,0,0" VerticalAlignment="Top" Height="80" Width="200" Grid.Column="2" Grid.ColumnSpan="2">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="#FF052D54" CornerRadius="5">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="border" Property="Background" Value="#FFFCDB4E"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+
+                    <!-- Feedback Button -->
+                    <Button x:Name="ParkingRates" FontSize="24" FontWeight="Bold"  Click="goToParkingRates_Click"  Background="#FFE0CC3E" Foreground="#FF052D54" Content="Parking Rates" HorizontalAlignment="Left" VerticalAlignment="Center" Height="80" Width="200" Grid.Column="3">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="#FF052D54" CornerRadius="5">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="border" Property="Background" Value="#FFFCDB4E"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button x:Name="Quit" FontSize="24" FontWeight="Bold"  Click="goToExit_Click"  Background="#FFE0CC3E" Foreground="#FF052D54" Content="Quit" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="200" Grid.Column="2" Margin="93,309,0,0" Grid.ColumnSpan="2">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="#FF052D54" CornerRadius="5">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="border" Property="Background" Value="#FFFCDB4E"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+
+            </TabItem>
+
+
+            <!-- Reservation Tab -->
+            <TabItem Header="Reservation" x:Name="Reservation">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="230*"/>
+                        <ColumnDefinition Width="563*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="BackButtonReservation" Grid.Column="1" FontSize="15" FontWeight="Bold" Background="#FFE0CC3E" Foreground="#FF052D54" Content="Back" Click="BackButtonReservation_Click" HorizontalAlignment="Left" Margin="439,6,0,0" VerticalAlignment="Top" Height="20" Width="85
+                            ">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <!-- Filter controls -->
+                    <StackPanel Orientation="Horizontal" Margin="10,10,10,10" Grid.ColumnSpan="2">
+                        <CheckBox x:Name="VacantFilter" Content="Show Vacant Only" Checked="VacantFilter_Checked" Unchecked="VacantFilter_Unchecked"/>
+
+                    </StackPanel>
+                    <ComboBox x:Name="FloorFilter" Width="86" SelectionChanged="FloorFilter_SelectionChanged" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="134,6,0,0" RenderTransformOrigin="0.508,-0.95">
+                        <!-- Populate with available floor options -->
+                        <ComboBoxItem Content="All"/>
+                        <ComboBoxItem Content="Floor 1"/>
+                        <ComboBoxItem Content="Floor 2"/>
+                        <ComboBoxItem Content="Floor 3"/>
+                        <ComboBoxItem Content="Floor 4"/>
+                    </ComboBox>
+                    <!-- DataGrid for vacant spots -->
+
+                    <DataGrid x:Name="VacantSpotsGrid" AutoGenerateColumns="False" Grid.ColumnSpan="2" Margin="0,35,-21,-43" SelectionChanged="VacantSpotsGrid_SelectionChanged" Grid.RowSpan="2">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Floor" Binding="{Binding Floor}"/>
+                            <DataGridTextColumn Header="Section" Binding="{Binding Section}"/>
+                            <DataGridTextColumn Header="Number" Binding="{Binding Number}"/>
+                            <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
+            <!-- Payment Tab -->
+            <TabItem Header="Payment" x:Name="Payment">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="235*"/>
+                        <ColumnDefinition Width="99*"/>
+                        <ColumnDefinition Width="94*"/>
+                        <ColumnDefinition Width="29*"/>
+                        <ColumnDefinition Width="110*"/>
+                        <ColumnDefinition Width="226*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="/Image2.png" Margin="-10,-21,10,0" Grid.ColumnSpan="6" />
+                    <Image Source="/Image3.png" Margin="10,-34,43,350" />
+                    <Button x:Name="BackButtonPayment" Grid.Column="5" FontSize="15" FontWeight="Bold" Background="#FFE0CC3E" Foreground="#FF052D54" Content="Back" Click="BackButtonPayment_Click" HorizontalAlignment="Left" Margin="90,27,0,0" VerticalAlignment="Top" Height="20" Width="85">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <!-- Search Box -->
+                    <TextBox Grid.Column="0" 
+                 Margin="214,186,183,0"
+                 VerticalAlignment="Top"
+                 Text="Enter your ticket number..."
+                 FontSize="20"
+                 GotFocus="TextBox_GotFocus"
+                 LostFocus="TextBox_LostFocus" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="6" Height="44" />
+
+                    <Button x:Name="CheckButtonWindow" FontSize="20" FontWeight="Bold" Background="#FFE0CC3E" Foreground="#FF052D54" Content="Check" HorizontalAlignment="Left" Margin="13,256,0,0"  VerticalAlignment="Top" Height="38" Width="119" Grid.ColumnSpan="2" Grid.Column="1">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="payButtonWindow" FontSize="20" FontWeight="Bold" Background="#FFE0CC3E" Foreground="#FF052D54" Content="Pay" HorizontalAlignment="Left" Margin="0,256,0,0" VerticalAlignment="Top" Height="38" Width="119" Grid.Column="3" Grid.ColumnSpan="2">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+
+                </Grid>
+            </TabItem>
+            <!-- Feedback Tab -->
+            <TabItem Header="Feedbacks" x:Name="Feedbacks" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="47*"/>
+                        <ColumnDefinition Width="16*"/>
+                        <ColumnDefinition Width="12*"/>
+                        <ColumnDefinition Width="288*"/>
+                        <ColumnDefinition Width="425*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Margin="-10,1,-2,-1" Source="/Image4.png" Stretch="Fill" Grid.ColumnSpan="6"/>
+                    <TextBlock Text="Ticket No. 1234567" FontSize="27" FontWeight="Bold" Margin="10,72,414,299" Grid.ColumnSpan="5" Grid.Column="1"/>
+                    <TextBlock Text="Establishment:" FontSize="22" Margin="0,157,147,214" Grid.Column="3" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Feedback:" FontSize="22" Margin="0,229,185,142" Grid.Column="3" Grid.ColumnSpan="2"/>
+                    <Image Margin="0,1,0,373" Source="/Image5.png" Stretch="Fill" HorizontalAlignment="Left" Width="253" RenderTransformOrigin="-0.259,0.441" Grid.ColumnSpan="5"/>
+                    <TextBox x:Name="EstablishmentTextBoxRegis" FontSize="20" Grid.Column="3" HorizontalAlignment="Left" Margin="0,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Height="29" Grid.ColumnSpan="2"/>
+                    <PasswordBox x:Name="FeedbackTextBoxRegis" FontSize="20" Grid.Column="3" HorizontalAlignment="Left" Margin="0,266,0,0" VerticalAlignment="Top" Width="284" Height="108" Grid.ColumnSpan="2"/>
+
+                    <Button x:Name="BackButtonFeedback" Grid.Column="5" FontSize="15" FontWeight="Bold" Background="#FFE0CC3E" Foreground="#FF052D54" Content="Back" Click="BackButtonFeedback_Click" HorizontalAlignment="Left" Margin="256,86,0,0" VerticalAlignment="Top" Height="28" Width="96">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <TextBlock Text="Tell Us Your Experience" FontSize="22" Margin="27,120,11,252" Grid.ColumnSpan="4" Grid.Column="1"/>
+                    <TextBlock Text="Welcome, User" FontSize="22" Margin="192,10,34,361" Grid.Column="5"/>
+                    <Button x:Name="SubmitButtonFeedback" Grid.Column="4" FontSize="15" FontWeight="Bold" Background="#FFE0CC3E" Foreground="#FF052D54" Content="Submit" Click="SubmitButtonFeedback_Click" HorizontalAlignment="Left" Margin="176,388,0,0" VerticalAlignment="Top" Height="28" Width="96" RenderTransformOrigin="-0.156,0.564">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="E-tickets" x:Name="ViewEtickets">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="24*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="12*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="673*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Margin="-10,1,-2,-1" Source="/Image4.png" Stretch="Fill" Grid.ColumnSpan="11"/>
+                    <TextBlock Text="Your E-tickets" FontSize="27" FontWeight="Bold" Margin="1,105,545,266" Grid.Column="2" Grid.ColumnSpan="9"/>
+                    <Image Margin="0,1,0,373" Source="/Image5.png" Stretch="Fill" HorizontalAlignment="Left" Width="253" RenderTransformOrigin="-0.259,0.441" Grid.ColumnSpan="11"/>
+                    <Button x:Name="BackButtonEticket" Grid.Column="10" FontSize="20" FontWeight="Bold" Background="#FFE0CC3E" Foreground="#FF052D54" Content="Back" HorizontalAlignment="Left" Margin="503,91,0,0" Click="BackButtonEticket_Click" VerticalAlignment="Top" Height="28" Width="96">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <TextBlock Text="Welcome, User" FontSize="22" Margin="452,10,34,361" Grid.Column="10"/>
+                    <DataGrid Height="252" HorizontalAlignment="Left" Margin="15,149,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="578" Grid.Column="8" Grid.ColumnSpan="3" SelectionChanged="dataGrid1_SelectionChanged" />
+
+
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="Parking Rates" x:Name="ParkingFee" >
+                <Grid Margin="-1,0,1,0" Height="470">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="235*"/>
+                        <ColumnDefinition Width="26*"/>
+                        <ColumnDefinition Width="59*"/>
+                        <ColumnDefinition Width="473*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Arrival Time Input -->
+                    <TextBlock Text="Arrival Time (Military Format):" Margin="10,10,10,10" Grid.Row="0" Grid.ColumnSpan="4"/>
+                    <TextBox x:Name="ArrivalTimeTextBox" Grid.Row="1" Margin="10,10,1,10" Height="30" Grid.ColumnSpan="2"/>
+
+                    <!-- Exit Time Input -->
+                    <TextBlock Text="Exit Time (Military Format):" Margin="10,10,10,10" Grid.Row="2" Grid.ColumnSpan="4"/>
+                    <TextBox x:Name="ExitTimeTextBox" Grid.Row="3" Margin="10,10,1,10" Height="30" Grid.ColumnSpan="2"/>
+
+                    <!-- Calculate Button -->
+                    <Button x:Name="TotalCost" Content="Calculate Total Cost" Click="CalculateTotalCost_Click" Grid.Row="4" Margin="10,102,53,-82" Height="40"/>
+
+                    <!-- Result Display -->
+                    <TextBlock x:Name="TotalCostTextBlock" Grid.Row="4" Margin="10,164,10,-144" FontWeight="Bold" Grid.ColumnSpan="4"/>
+                    <Button x:Name="BackButtonParkingRate" Grid.Column="3" FontSize="15" FontWeight="Bold" Background="#FFE0CC3E" Foreground="#FF052D54" Content="Back" Click="BackButtonParkingRates_Click" HorizontalAlignment="Left" Margin="283,5,0,0" VerticalAlignment="Top" Height="20" Width="85" Grid.Row="1">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <!-- Tab Control -->
+    </Grid>
+</Window>
